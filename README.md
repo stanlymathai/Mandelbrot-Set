@@ -15,3 +15,28 @@ The Mandelbrot set is a famous fractal that is defined in the complex plane.
 3. Render the Image
 
     Based on the number of iterations for each point, we'll color the point accordingly.
+
+## Key Details
+1. Complex Plane Mapping
+
+    We map the pixel coordinates of our image to the complex plane using linear interpolation.
+
+    `real := xMin + (xMax-xMin)*float64(x)/float64(width)` maps the x-coordinate
+    `imaginary := yMin + (yMax-yMin)*float64(y)/float64(height)` maps the y-coordinate
+
+2. Iteration Function
+
+    `mandelbrot` function performs the iterations and returns the number of iterations before the sequence exceeds the threshold.
+
+3. Color Mapping 
+
+    The `colorMapping` function maps the number of iterations to a color. Points that remain within the set are colored black, while others are colored based on the number of iterations.
+
+4. Image Creation
+
+    `createMandelbrotImage` creates an image of the Mandelbrot set by iteration over each pixel, calculating the coresponding point in the complex plane and determining the color based on the iteration count.
+
+5. Output
+
+    The generated image is saved as `mandelbrot.png` in the current directory.
+
